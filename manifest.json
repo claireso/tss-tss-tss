@@ -1,0 +1,38 @@
+{
+  "name": "Tss tss tss",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Reveal hidden content",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.leparisien.fr/*"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "js": [
+        "base.js",
+        "./websites/leparisien.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": [
+        "base.js",
+        "./websites/instagram.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.liberation.fr/*"
+      ],
+      "js": [
+        "base.js",
+        "./websites/liberation.js"
+      ]
+    }
+  ]
+}
