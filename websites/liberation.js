@@ -1,3 +1,7 @@
+/**
+ * Liberation website:
+ * - Remove paywall
+ */
 (() => {
   const mutations = [
     // paywall

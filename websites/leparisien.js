@@ -1,3 +1,8 @@
+/**
+ * Le parisien website:
+ * - Remove paywall
+ * - Make content readable
+ */
 (() => {
   const mutations = [
     // paywall type 1

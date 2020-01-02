@@ -1,3 +1,9 @@
+/**
+ * Instagram website:
+ * - Remove the banner "Log in to instagram" at the bottom
+ * - Remove the modal "Log in to instagram" which appears during the navigation
+ * - Unlock the scroll after modal display
+ */
 (() => {
   const mutations = [
     // banner "log in to instagram"
@@ -19,17 +25,26 @@
     // modal "log in to instagram"
     {
       target: document.querySelector('body'),
+      type: 'childList',
+      config: { childList: true, subtree: false },
+      onChange: (mutation) => {
+        if (mutation.addedNodes.length) {
+          const addedNode = mutation.addedNodes[0]
+
+          if (addedNode.getAttribute('role') === 'presentation') {
+            addedNode.parentNode.removeChild(addedNode)
+          }
+        }
+      }
+    },
+    // unlock scroll
+    {
+      target: document.querySelector('body'),
       type: 'attributes',
       config: { attributes: true, attributeFilter: ['style'], subtree: false },
       onChange: (mutation) => {
         if (mutation.target.getAttribute('style') === 'overflow: hidden;') {
           mutation.target.removeAttribute('style')
-
-          const modal = mutation.target.querySelector('div[role="presentation"]')
-
-          if (modal) {
-            modal.parentNode.removeChild(modal)
-          }
         }
       }
     }
