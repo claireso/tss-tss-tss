@@ -9,7 +9,6 @@
     // banner "log in to instagram"
     {
       target: document.querySelector('body'),
-      type: 'childList',
       config: { childList: true, subtree: true },
       onChange: (mutation, observer) => {
         const xpath = "//div[contains(text(),'Log In to Instagram')]"
@@ -25,7 +24,6 @@
     // modal "log in to instagram"
     {
       target: document.querySelector('body'),
-      type: 'childList',
       config: { childList: true, subtree: false },
       onChange: (mutation) => {
         if (mutation.addedNodes.length) {
@@ -40,7 +38,6 @@
     // unlock scroll
     {
       target: document.querySelector('body'),
-      type: 'attributes',
       config: { attributes: true, attributeFilter: ['style'], subtree: false },
       onChange: (mutation) => {
         if (mutation.target.getAttribute('style') === 'overflow: hidden;') {

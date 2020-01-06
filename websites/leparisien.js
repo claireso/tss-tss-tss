@@ -8,7 +8,6 @@
     // paywall type 1
     {
       target: document.querySelector('div#paywall-connect'),
-      type: 'childList',
       config: { childList: true, subtree: false },
       onChange: (mutation, observer) => {
         const wrapper = mutation.target.parentNode
@@ -19,7 +18,6 @@
     // content
     {
       target: document.querySelector('div.article-section'),
-      type: 'attributes',
       config: { attributes: true, attributeFilter: ['style'], subtree: true },
       onChange: (mutation) => {
         if (mutation.target.classList.contains('content')) {
@@ -30,7 +28,6 @@
     // paywall type 2
     {
       target: document.querySelector('div#hpaywall-offer'),
-      type: 'childList',
       config: { childList: true, subtree: false },
       onChange: (mutation, observer) => {
         const wrapper = mutation.target.parentNode

@@ -5,9 +5,7 @@
 
       const spy = new MutationObserver((mutationsList, observer) => {
         for (let mutation of mutationsList) {
-          if (_mutation.type === mutation.type) {
-            _mutation.onChange && _mutation.onChange(mutation, observer)
-          }
+          _mutation.onChange && _mutation.onChange(mutation, observer)
         }
       })
 

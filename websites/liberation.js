@@ -7,7 +7,6 @@
     // paywall
     {
       target: document.querySelector('body'),
-      type: 'childList',
       config: { childList: true, subtree: false },
       onChange: (mutation, observer) => {
         const paywall = mutation.target.querySelector('div.pws')
