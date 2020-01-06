@@ -20,6 +20,9 @@
       "matches": [
         "https://www.instagram.com/*"
       ],
+      "css": [
+        "styles.css"
+      ],
       "js": [
         "base.js",
         "./websites/instagram.js"

@@ -31,8 +31,8 @@
         if (mutation.addedNodes.length) {
           const addedNode = mutation.addedNodes[0]
 
-          if (addedNode.getAttribute('role') === 'presentation') {
-            addedNode.parentNode.removeChild(addedNode)
+          if (addedNode.getAttribute('role') === 'presentation' && addedNode.parentNode) {
+            addedNode.classList.add('tss_tss_tss_hidden')
           }
         }
       }

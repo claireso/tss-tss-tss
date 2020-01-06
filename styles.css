@@ -1,3 +1,7 @@
 .tss_tss_tss_force_visibility {
   filter: blur(0px) !important;
 }
+
+.tss_tss_tss_hidden {
+  display: none !important;
+}
