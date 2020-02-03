@@ -34,6 +34,21 @@
         wrapper.parentNode.removeChild(wrapper)
         observer.disconnect()
       }
+    },
+    // reinject removed content
+    {
+      target: document.querySelector('div.paywall-abo div.width_full'),
+      config: { childList: true, subtree: false },
+      onChange: (mutation, observer) => {
+        if (mutation.removedNodes.length) {
+          const removedNode = mutation.removedNodes[0]
+
+          if (removedNode.classList.contains('article-section')) {
+            mutation.target.appendChild(removedNode)
+            observer.disconnect()
+          }
+        }
+      }
     }
   ]
 

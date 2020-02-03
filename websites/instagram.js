@@ -17,7 +17,6 @@
         if (matchingElement !== null) {
           const banner = matchingElement.parentNode.parentNode.parentNode.parentNode
           banner.parentNode.removeChild(banner)
-          observer.disconnect()
         }
       }
     },
