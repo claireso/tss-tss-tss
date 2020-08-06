@@ -18,10 +18,11 @@
     // content
     {
       target: document.querySelector('div.article-section'),
-      config: { attributes: true, attributeFilter: ['style'], subtree: true },
-      onChange: (mutation) => {
+      config: { attributes: true, attributeFilter: ['class'], subtree: true },
+      onChange: (mutation, observer) => {
         if (mutation.target.classList.contains('content')) {
-          mutation.target.classList.add('tss_tss_tss_force_visibility')
+          mutation.target.classList.remove('blurText')
+          observer.disconnect()
         }
       }
     },
@@ -37,16 +38,14 @@
     },
     // reinject removed content
     {
-      target: document.querySelector('div.paywall-abo div.width_full'),
+      target: document.querySelector('div.comments-wrapper'),
       config: { childList: true, subtree: true },
       onChange: (mutation, observer) => {
         if (mutation.removedNodes.length) {
           const removedNode = mutation.removedNodes[0]
 
-          if (removedNode.classList.contains('content')) {
-            mutation.target.appendChild(removedNode)
-            observer.disconnect()
-          }
+          mutation.target.appendChild(removedNode)
+          observer.disconnect()
         }
       }
     }
